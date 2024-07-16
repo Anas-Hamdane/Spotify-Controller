@@ -6,7 +6,7 @@
 int main(int argc, char const *argv[])
 {
     char* pid = malloc(100 * sizeof(char));
-    system("cd ~/.config/rofi/SpotifyController/C-Scripts && hyprctl clients | grep -A 4 \"class: \"Spotify\"\" | grep \"pid\" > ~/.config/rofi/SpotifyController/C-Scripts/tmp.txt");
+    system("hyprctl clients | grep -A 4 \"class: \"Spotify\"\" | grep \"pid:\" > ~/.config/rofi/SpotifyController/C-Scripts/tmp.txt");
     FILE* file;
 
     //Home Directory

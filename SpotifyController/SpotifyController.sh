@@ -3,7 +3,7 @@
 # Author : Anas Hamdane
 # Github : AnasHamdane
 
-# This Script Uses playerctl, curl, imagemagick, and hyprctl
+# This Script Uses playerctl, curl, and hyprctl
 
 
 CoverReload() {
@@ -15,20 +15,20 @@ CoverReload() {
 
 Notify() {
 	status=$(playerctl --player=spotify status)
-	title=$(playerctl metadata title)
+	title=$(playerctl --player=spotify metadata title)
 	
 	notify-send --app-name="Spotify Control" "Spotify Control" "$status $title" -i /tmp/cover.png
 }
 
 
 PreviousSound() {
-	PreviousTest=$(playerctl metadata --format "{{ duration(position) }}")
+	PreviousTest=$(playerctl --player=spotify metadata --format "{{ duration(position) }}")
 
 	if [ "${PreviousTest}" = "0:00" ]; then
-		playerctl previous spotify
+		playerctl --player=spotify previous
 	else
-		playerctl previous spotify
-		playerctl previous spotify
+		playerctl --player=spotify previous
+		playerctl --player=spotify previous
 	fi
 
 	sleep 1
@@ -36,46 +36,38 @@ PreviousSound() {
 	CoverReload
 
 	Notify
-
-	Player
 }
 
 PlaySound() {
-	playerctl play spotify
+	playerctl --player=spotify play
 
 	sleep 1
 
 	#CoverReload
 
 	Notify
-
-	Player
 }
 
 
 NextSound() {
-	playerctl next spotify
+	playerctl --player=spotify next
 
 	sleep 1
 
 	CoverReload
 
 	Notify
-
-	Player
 }
 
 
 PauseSound() {
-	playerctl pause spotify
+	playerctl --player=spotify pause
 
 	sleep 1
 
 	#CoverReload
 
 	Notify
-
-	Player
 } 
 
 KillSpotify() {
@@ -116,10 +108,7 @@ Player() {
 
 	CoverReload
 
-	# or Use convert instead of mogrify
-	mogrify -resize 500x500 /tmp/cover.png
-
-	title=$(playerctl metadata title)
+	title=$(playerctl --player=spotify metadata title)
 
 
 	# Add Favorite Sounds Configuration
@@ -127,7 +116,7 @@ Player() {
 
 
 	if [ "${title}" != "Tohou-Bad Apple " ];then
-		title=${title%-*}
+		title=${title%% -*}
 	fi
 
 	#test it in terminal With something like this
@@ -143,11 +132,9 @@ Player() {
 			;;
 		' Play')
 			PlaySound
-			
 			;;
 		' Next Sound')
 			NextSound
-
 			;;
 		'Hide/Unhide ')
 			Hide_Unhide_Spotify

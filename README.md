@@ -29,7 +29,6 @@ https://github.com/Anas-Hamdane/Spotify-Controller/assets/155746228/b6d338a0-714
   - [`rofi`](https://github.com/davatorium/rofi)
   - [`playerctl`](https://github.com/altdesktop/playerctl)
   - [`curl`](https://github.com/curl/curl)
-  - [`imagemagick`](https://github.com/ImageMagick/ImageMagick)
 
 ## Features
   - If Spotify Is Already Closed It'll Run It Automatically (Uses A `hyprctl` Command)
