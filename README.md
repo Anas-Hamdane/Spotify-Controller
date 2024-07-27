@@ -2,25 +2,19 @@
     Spotify Controller Using Rofi For Hyprland
 </h1>
 
-<details>
-<summary><b><code>Video</code></b></summary>
-
-https://github.com/Anas-Hamdane/Spotify-Controller/assets/155746228/b6d338a0-7140-4bdb-9adf-e808ed246ef8
-
-
 </details>
 
 
 <details>
-<summary><b><code>Picture</code></b></summary>
+<summary><b><code>Preview</code></b></summary>
 
-![Preview](https://github.com/Anas-Hamdane/Spotify-Controller/assets/155746228/5eff45cd-e466-461c-8d34-28ddc9eef7f1)
+![Preview](https://github.com/user-attachments/assets/de11e1e6-3601-4ff7-b357-0c777eb26fd6)
 
 </details>
 
 ## Important
 > [!WARNING]
-> Be Sure That You Can Run Spotify By Typing `spotify` In The Terminal. For Me, I Installed It From The Official [Website](https://www.spotify.com/us/download/linux/)
+> Be Sure That You Can Run Spotify By Typing `spotify` In Your Terminal. For Me, I've Install It From The Official [Website](https://www.spotify.com/us/download/linux/)
 
 > [!NOTE]
 > This Script Works **Perfectly** On Ubuntu 24.04 With Hyprland.
@@ -29,15 +23,17 @@ https://github.com/Anas-Hamdane/Spotify-Controller/assets/155746228/b6d338a0-714
   - [`rofi`](https://github.com/davatorium/rofi)
   - [`playerctl`](https://github.com/altdesktop/playerctl)
   - [`curl`](https://github.com/curl/curl)
+  - [`yad`](https://github.com/v1cont/yad) (For Lyrics Displaying)
 
 ## Features
-  - If Spotify Is Already Closed It'll Run It Automatically (Uses A `hyprctl` Command)
-  - Dynamic Sound Cover (`playectl`, `curl` and `imagemagick`)
+  - Automatically Open **Spotify** When Running The Script
+  - Dynamic Sound Cover (`playectl` and `curl`)
   - Play Previous **Spotify** Sound (`playectl`)
   - Play/Pause **Spotify** Sound (`playectl`)
   - Play Next **Spotify** Sound (`playectl`)
-  - Hide/Unhide **Spotify** (Uses Mainly `hyprctl` Commands)
-  - Kill **Spotify** (Uses `killall`)
+  - Open Sound Lyrics (`playectl`, `curl` and `yad`)
+  - Hide/Unhide **Spotify** (`hyprctl`)
+  - Kill **Spotify** (`killall`)
 
 ## Installation
 ```
@@ -45,17 +41,17 @@ git clone https://github.com/Anas-Hamdane/Spotify-Controller.git
 
 cd Spotify-Controller
 
-cp SpotifyController ~/.config/rofi -r
+cp Spotify-Controller ~/.config/rofi -r
 
-chmod +x ~/.config/rofi/SpotifyController/SpotifyController.sh
+chmod +x ~/.config/rofi/Spotify-Controller/launcher.sh
 
-~/.config/rofi/SpotifyController/SpotifyController.sh
+~/.config/rofi/Spotify-Controller/launcher.sh
 ```
 
 ## Recommended Configuration
 - Add A KeyBind To Your `hyprland.conf/Keybinds.conf/UserKeybinds.conf` For Example I've Added This Line
 ```
-bind = $mainMod CTRL, S, exec, ~/.config/rofi/SpotifyController/SpotifyController.sh
+bind = $mainMod CTRL, S, exec, ~/.config/rofi/Spotify-Controller/launcher.sh
 ```
 - To Hide Spotify Automatically When it Opens, Add This Line To `hyprland.conf/WindowRules.conf`
 ```
